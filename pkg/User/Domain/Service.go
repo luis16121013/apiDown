@@ -2,7 +2,7 @@ package Domain
 
 type UserService interface {
 	FindAllUser() ([]User, error)
-	ValidateLogin(User) (User,error)
+	ValidateLogin(*User) (User,error)
 }
 
 type service struct {
@@ -18,6 +18,6 @@ func (s *service) FindAllUser() ([]User, error) {
 	return s.ur.FindAllUser()
 }
 
-func (s *service) ValidateLogin(u User) (User,error){
+func (s *service) ValidateLogin(u *User) (User,error){
 	return s.ur.ValidateLogin(u)
 }
