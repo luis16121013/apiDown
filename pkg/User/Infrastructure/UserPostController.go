@@ -42,7 +42,7 @@ func (uc *UserPostController) Login(s Domain.UserService) func(c echo.Context) e
 		}
 		if user.Id == 0{
 			resp.ResponseUnauthorized()
-			return c.JSON(http.StatusOK, resp)
+			return c.JSON(http.StatusUnauthorized, resp)
 		}
 		resp.Data = user
 		return c.JSON(http.StatusOK, resp)
