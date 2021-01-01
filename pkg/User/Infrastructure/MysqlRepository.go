@@ -27,3 +27,12 @@ func (s *MysqlRepository) Query(query string, args ...interface{}) (*sql.Rows, e
 	}
 	return rows, err
 }
+
+//------------------------------------EXEC MYSQL
+func (s *MysqlRepository) Exec(query string, args ...interface{}) (sql.Result, error) {
+	result, err := s.db.Exec(query, args...)
+	if err != nil {
+		log.Println(err)
+	}
+	return result, err
+}
